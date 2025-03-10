@@ -106,7 +106,7 @@ const ChatSection = () => {
           <input
             type="text"
             {...register('message', { required: true })}
-            className="z-20 block w-full rounded-full border-0 bg-gray-50 p-3.5 text-sm text-gray-900 outline-none focus:ring-0 dark:bg-slate-800 dark:text-white"
+            className="block w-full rounded-full border-0 bg-gray-50 p-3.5 text-sm text-gray-900 outline-none focus:ring-0 dark:bg-slate-800 dark:text-white"
             placeholder="Type a message..."
             autoComplete="off"
           />

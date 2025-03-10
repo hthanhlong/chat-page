@@ -43,7 +43,7 @@ const AvatarDefault = ({
         alt="none"
       />
       {isOnline && (
-        <span className="absolute bottom-0 left-9 h-2.5 w-2.5 rounded-full bg-lime-600"></span>
+        <span className="absolute bottom-0 left-7 h-2 w-2 rounded-full bg-lime-600"></span>
       )}
     </div>
   )

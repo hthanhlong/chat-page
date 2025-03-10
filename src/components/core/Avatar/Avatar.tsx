@@ -56,7 +56,7 @@ const Avatar = ({
 
   return (
     <form
-      className={`flex h-full w-fit items-center ${className ? className : ''}`}
+      className={`flex h-full items-center ${className ? className : ''}`}
       onSubmit={handleSubmit(onSubmit)}
     >
       <AvatarDefault
@@ -66,7 +66,7 @@ const Avatar = ({
           avatarUrl || 'https://avatars.githubusercontent.com/u/54071671?v=4'
         }
       />
-      <div className="ml-3 h-full flex-1">
+      <div className="ml-3">
         <div className="max-lg:text-md flex h-full items-center text-black dark:text-gray-300">
           <span>{name || ''}</span>
         </div>

@@ -1,0 +1,7 @@
+.list-users {
+    scrollbar-width: none;
+}
+
+.list-users::-webkit-scrollbar {
+    display: none;
+}

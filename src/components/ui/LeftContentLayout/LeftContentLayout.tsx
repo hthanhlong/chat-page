@@ -38,7 +38,7 @@ const LeftContentLayout = ({ children }: { children: ReactNode }) => {
   return (
     <motion.div
       ref={scope}
-      className="chat-left z-10 w-full max-w-[300px] border-r-[1px] border-gray-600 bg-white shadow-gray-500 dark:bg-black max-lg:fixed max-lg:-left-[300px] max-lg:top-0 max-lg:h-full"
+      className="chat-left max-lg: z-10 w-[300px] border-r-[1px] border-gray-600 bg-white shadow-gray-500 dark:bg-black max-lg:fixed max-lg:-left-[300px] max-lg:top-0 max-lg:h-full"
     >
       {children}
     </motion.div>

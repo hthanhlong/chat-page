@@ -43,12 +43,12 @@ const SearchBar = (
   }, [valueDebounce])
 
   return (
-    <form
-      {...props}
-      onSubmit={handleSubmit(onSubmit as never)}
-      className={`${PADDING_CONTAINER} dark:border-gray-600`}
-    >
-      <div className="relative">
+    <div className="flex h-[80px] items-center px-2 dark:border-gray-600">
+      <form
+        {...props}
+        onSubmit={handleSubmit(onSubmit as never)}
+        className="relative w-full"
+      >
         <div className="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
           <svg
             className="h-4 w-4 text-gray-700 dark:text-gray-400"
@@ -74,8 +74,8 @@ const SearchBar = (
           placeholder="Searching..."
           autoComplete="off"
         />
-      </div>
-    </form>
+      </form>
+    </div>
   )
 }
 

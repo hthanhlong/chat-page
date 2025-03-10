@@ -1,16 +1,12 @@
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { FriendService } from '../../../core/services'
-import {
-  useAuth,
-  useWebSocket,
-  usePropertiesElement,
-  useSelectedUserChat,
-} from '../../../core/hooks'
+import { useAuth, useWebSocket, useSelectedUserChat } from '../../../core/hooks'
 import { useEffect, useState } from 'react'
 import ClearMessage from '../ClearMessage/ClearMessage'
 import Unfriend from '../Unfriend/Unfriend'
 import { SOCKET_EVENTS } from '../../../core/constant'
 import UserItem from '../UserItem/UserItem'
+import './list-users.css'
 
 const ListUsers = () => {
   const { id } = useAuth()
@@ -18,11 +14,8 @@ const ListUsers = () => {
     useSelectedUserChat()
   const { webSocket, webSocketEvent } = useWebSocket()
   const [listOnLineUsers, setListOnLineUsers] = useState<string[]>([])
-  const properties = usePropertiesElement('main-layout')
-  const properties2 = usePropertiesElement('chat-left-top')
   const [rightClick, setRightClick] = useState('')
   const queryClient = useQueryClient()
-  const currentHeight = (properties?.height ?? 0) - (properties2?.height ?? 0)
 
   const { data, isLoading } = useQuery({
     queryKey: ['myFriends', id],
@@ -71,11 +64,11 @@ const ListUsers = () => {
   }, [id, listFriends, webSocketEvent])
 
   return (
-    <div className="overflow-auto" style={{ height: currentHeight || '' }}>
+    <div className="list-users lg:min-h-[calc(650px-160px)]">
       {!isLoading ? (
         listFriends?.map(
           (user: { _id: string; nickname: string; caption: string }) => (
-            <div key={user._id} className="relative">
+            <div key={user._id} className="z-1 relative">
               <UserItem
                 isOnline={listOnLineUsers.includes(user._id)}
                 userId={user._id}
@@ -89,11 +82,11 @@ const ListUsers = () => {
                 }}
               />
               <div
-                className={`menu-user-item absolute left-2 top-[60px] z-10 mb-3 rounded bg-white shadow-lg ${
+                className={`absolute left-2 top-[50px] mb-3 rounded bg-white shadow-lg ${
                   user._id === rightClick ? 'block' : 'hidden'
                 } `}
               >
-                <ul className="w-[140px] dark:bg-slate-800 dark:text-white">
+                <ul className="z-50 w-[140px] dark:bg-slate-800 dark:text-white">
                   <li className="cursor-pointer border-b-[1px] px-1 py-2 text-xs hover:bg-slate-200 dark:border-slate-600 dark:hover:bg-slate-600">
                     <ClearMessage />
                   </li>
